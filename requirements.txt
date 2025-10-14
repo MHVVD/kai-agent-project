@@ -1,0 +1,12 @@
+uagents==0.17.1
+uagents-core==0.3.0
+pydantic>=2.0
+openai
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+requests
+beautifulsoup4
+hyperon
+yfinance
+matplotlib
