@@ -4,8 +4,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
-EMAIL_ADDRESS = "mahmudlawal7@gmail.com"
-EMAIL_PASSWORD = "***REMOVED***"
+EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 def send_email(recipient_email: str, subject: str, body: str):
     msg = MIMEMultipart()
