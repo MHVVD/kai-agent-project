@@ -1,14 +1,11 @@
-# In: agents/kai_health.py
-
 import re
 from datetime import datetime
 from uagents import Agent, Context
 from services.calendar_service import schedule_event
 from services.llm_service import generate_weekly_wellness_plan
 from services.email_service import send_email
-from models import LogActivity
 from knowledge.user_model import atomspace, metta
-from models import LogActivity, ScheduleMindfulness # <-- Add ScheduleMindfulness
+from models import LogActivity, ScheduleMindfulness
 
 
 kai_health = Agent(
@@ -23,10 +20,9 @@ async def generate_and_execute_plan(ctx: Context):
     if ctx.storage.get("weekly_plan_generated"):
         return
 
-    # THE FIX: Get the address from storage, which was set in main.py
+    # kai_mind's address is placed in storage by main.py
     kai_mind_address = ctx.storage.get("kai_mind_address")
 
-    # (The rest of the function is the same as the last working version)
     ctx.logger.info("Kai-Health checking user state to generate weekly plan...")
     user_profile = {}
     queries = {
@@ -47,7 +43,7 @@ async def generate_and_execute_plan(ctx: Context):
     ctx.logger.info(f"Generated user profile from brain: {user_profile}")
     plan_text = await generate_weekly_wellness_plan(user_profile)
     
-    # ... (The rest of the function logic for parsing, scheduling, and emailing is the same)
+    # TODO: parse plan_text into calendar events and email the plan to the user
     
     if kai_mind_address:
         await ctx.send(kai_mind_address, LogActivity(activity_type="Health", details="Generated and executed weekly wellness plan."))
@@ -58,7 +54,7 @@ async def generate_and_execute_plan(ctx: Context):
 
 @kai_health.on_interval(period=3600.0)
 async def schedule_annual_checkup(ctx: Context):
-    # ... (this function is unchanged)
+    # TODO: schedule a yearly check-up reminder via calendar_service
     pass
 
 @kai_health.on_message(model=ScheduleMindfulness)

@@ -1,4 +1,3 @@
-# In: protocols/chat.py
 from uagents import Protocol, Model
 
 class ChatMessage(Model):

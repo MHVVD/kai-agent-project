@@ -1,4 +1,3 @@
-# In: services/finance_service.py
 import yfinance as yf
 
 # This service will handle fetching and analyzing financial data.

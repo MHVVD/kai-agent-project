@@ -26,3 +26,6 @@ __pycache__/
 token.json
 credentials.json
 report.png
+
+# Local secrets
+myenv.py

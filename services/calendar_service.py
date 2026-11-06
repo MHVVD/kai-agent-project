@@ -1,4 +1,3 @@
-# In: services/calendar_service.py
 import datetime
 import os.path
 from google.auth.transport.requests import Request

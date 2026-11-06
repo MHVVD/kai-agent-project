@@ -1,4 +1,3 @@
-# In: chat.py
 import threading
 from queue import Queue
 from uagents import Agent, Context, Model

@@ -1,5 +1,3 @@
-# In: knowledge/user_model.py
-
 from hyperon import MeTTa
 
 metta = MeTTa()

@@ -1,4 +1,3 @@
-# In: models.py
 from uagents import Model
 
 class LogActivity(Model):

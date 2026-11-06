@@ -1,5 +1,4 @@
-# In: agents/kai_mind.py
-
+import os
 import matplotlib.pyplot as plt
 from collections import Counter
 from uagents import Agent, Context
@@ -74,7 +73,7 @@ async def generate_report(ctx: Context):
     ctx.logger.info("Gathering data for holistic summary report...")
     user_data = {}
     
-    # Query for various facts... (you can add more here)
+    # Query the MeTTa knowledge base for the facts used in the report
     activity_query = metta.parse_single('!(match &self (fact (user mahmud) (activity_type $type) ($details)) $type)')
     activity_results = metta.run(str(activity_query))
     if activity_results and activity_results[0]:
@@ -90,7 +89,7 @@ async def generate_report(ctx: Context):
         return
 
     summary_text = await generate_holistic_summary(user_data)
-    user_email = "your_email@gmail.com" # Replace with your email
+    user_email = os.getenv("KAI_USER_EMAIL", "")
     send_email(user_email, "Your KAI Progress Summary & Insights", summary_text)
     ctx.logger.info(f"Holistic summary report sent to {user_email}.")
 

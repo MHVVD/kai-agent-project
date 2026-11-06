@@ -1,5 +1,3 @@
-# In: main.py
-
 from uagents import Bureau
 from agents.kai_health import kai_health
 from agents.kai_career import kai_career

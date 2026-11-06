@@ -1,5 +1,3 @@
-# In: agents/kai_finance.py
-
 from uagents import Agent, Context
 from services.finance_service import get_market_data
 from services.llm_service import generate_investment_analysis

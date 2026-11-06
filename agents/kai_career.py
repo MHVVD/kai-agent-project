@@ -1,5 +1,4 @@
-# In: agents/kai_career.py
-
+import os
 import hashlib
 from datetime import datetime, timedelta
 from uagents import Agent, Context
@@ -21,7 +20,7 @@ Mahmud Lawal - Python Developer
 Experience: Built a multi-agent system with uAgents.
 Skills: Python, AI, uAgents, MeTTa, APIs.
 """
-USER_EMAIL = "your_email@gmail.com" # Replace with your email
+USER_EMAIL = os.getenv("KAI_USER_EMAIL", "")
 
 # --- Event Handlers ---
 

@@ -1,5 +1,3 @@
-# In: services/llm_service.py
-
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -123,8 +121,7 @@ async def generate_weekly_wellness_plan(user_profile: dict) -> str:
 async def find_job_opportunities(role: str) -> list[str]:
     """Finds job opportunities by scraping a simple job site."""
     url = f"https://realpython.github.io/fake-jobs/"
-    # This part of the function is unchanged and remains for testing
-    # ...
+    # TODO: scrape listings from the demo job board at `url`
     return []
 async def generate_holistic_summary(user_data: dict) -> str:
     """Uses an LLM to analyze a user's data and provide a summary."""
